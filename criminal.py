@@ -172,7 +172,7 @@ class Criminal:
         btn_update.grid(row=0,column=1,padx=3,pady=5)
 
         #Delete button
-        btn_delete=Button(button_frame,text='Delete',font=("arial",13,"bold"),width=14,bg='blue',fg='white')
+        btn_delete=Button(button_frame,command = self.delete_data,text='Delete',font=("arial",13,"bold"),width=14,bg='blue',fg='white')
         btn_delete.grid(row=0,column=2,padx=3,pady=5)
 
         #Clear button
@@ -360,7 +360,32 @@ class Criminal:
 
             except Exception as es:
                 messagebox.showerror('Error',f'Due to {str(es)}')
+
+
+    def delete_data(self):
+        if self.var_case_id.get()=="":
+            messagebox.showerror('Error','All fields are rewuired')
+        else:
+            try:
+                Delete= messagebox.askyesno('Delete','Are you sure you want to delete the record?')
+                if Delete>0:
+                    conn = mysql.connector.connect(host='localhost', username = 'root', password = 'vaish193', database = 'learndb')
+                    my_cursor = conn.cursor()
+                    sql = 'delete from criminalbase where case_id = %s'
+                    value = (self.var_case_id.get(),)
+                    my_cursor.execute(sql,value)
+
+                else:
+                    if not Delete:
+                        return
+                    
+                conn.commit()
+
+                self.fetch_data()
+                conn.close()
         
+            except Exception as es:
+                messagebox.showerror('Error',f'Due to {str(es)}')
 
 
 
