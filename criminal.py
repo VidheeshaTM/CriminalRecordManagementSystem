@@ -272,7 +272,7 @@ class Criminal:
 
         else:
             try:
-                conn= mysql.connector.connect(host='localhost',username='root',password='vaish193', database='learndb')
+                conn= mysql.connector.connect(host='crms-database.c1cu4w0w6899.ap-southeast-2.rds.amazonaws.com',username='admin',password='crms2024', database='learndb')
                 mycursor = conn.cursor()
 
                 mycursor.execute('insert into criminalbase values(%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s)',(
@@ -309,7 +309,7 @@ class Criminal:
     #fetch Data
                 
     def fetch_data(self):
-        conn = mysql.connector.connect(host = 'localhost', username = 'root', password = 'vaish193', database='learndb')
+        conn= mysql.connector.connect(host='crms-database.c1cu4w0w6899.ap-southeast-2.rds.amazonaws.com',username='admin',password='crms2024', database='learndb')
         my_cursor=conn.cursor()
         my_cursor.execute('select * from criminalbase')
         data=my_cursor.fetchall()
@@ -351,7 +351,7 @@ class Criminal:
             try:
                 update=messagebox.askyesno('Update','Are you sure?' )
                 if update>0:
-                    conn = mysql.connector.connect(host = 'localhost', username = 'root', password = 'vaish193', database='learndb')
+                    conn= mysql.connector.connect(host='crms-database.c1cu4w0w6899.ap-southeast-2.rds.amazonaws.com',username='admin',password='crms2024', database='learndb')
                     my_cursor=conn.cursor()
                     #my_cursor.execute('update criminalbase set Criminal_No=%s, criminal_Name = %s'........................ blah blah blah all attributes,(self.var_criminal_id.get(), etc etc))
                 else:
@@ -376,7 +376,7 @@ class Criminal:
             try:
                 Delete= messagebox.askyesno('Delete','Are you sure you want to delete the record?')
                 if Delete>0:
-                    conn = mysql.connector.connect(host='localhost', username = 'root', password = 'vaish193', database = 'learndb')
+                    conn= mysql.connector.connect(host='crms-database.c1cu4w0w6899.ap-southeast-2.rds.amazonaws.com',username='admin',password='crms2024', database='learndb')
                     my_cursor = conn.cursor()
                     sql = 'delete from criminalbase where case_id = %s'
                     value = (self.var_case_id.get(),)
@@ -420,7 +420,7 @@ class Criminal:
             messagebox.showerror('Error','All fields are required')
         else:
             try:
-                conn = mysql.connector.connect(host = 'localhost', username = 'root', password = 'vaish193', database='learndb')
+                conn= mysql.connector.connect(host='crms-database.c1cu4w0w6899.ap-southeast-2.rds.amazonaws.com',username='admin',password='crms2024', database='learndb')
                 my_cursor=conn.cursor()
                 my_cursor.execute('select * from criminalbase where ' +str(self.var_com_search.get())+" LIKE'%"+str(self.var_search.get()+"%'"))
                 rows = my_cursor.fetchall()
