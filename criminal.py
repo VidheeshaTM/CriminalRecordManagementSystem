@@ -434,24 +434,9 @@ class Criminal:
             except Exception as es:
                 messagebox.showerror('Error',f'Due to {str(es)}')
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 if __name__ == "__main__":
     root=Tk()
     obj=Criminal(root)
     root.mainloop()
+    # i am ahere
+    
