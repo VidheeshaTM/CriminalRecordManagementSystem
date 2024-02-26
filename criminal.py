@@ -432,26 +432,12 @@ class Criminal:
                 conn.close()
 
             except Exception as es:
-                messagebox.showerror('Error',f'Due to {str(es)}')
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+                messagebox.showerror('Error',f'Due to {str(es)}')  
+    def test(self):
+        pass
 
 if __name__ == "__main__":
     root=Tk()
     obj=Criminal(root)
     root.mainloop()
+    
