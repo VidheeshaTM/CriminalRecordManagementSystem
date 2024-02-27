@@ -1,6 +1,5 @@
-import tkinter as tk
-from tkinter import messagebox
 from tkinter import *
+from tkinter import messagebox
 from PIL import Image, ImageTk
 import mysql.connector
 import criminal
@@ -25,7 +24,7 @@ class Login:
         canvas1.pack(fill = "both", expand = True)
 
         #Display the image in the background
-        canvas1.create_image(0,0 ,image = bg)#anchor = "nw"
+        canvas1.create_image(0,0,image = bg,anchor=CENTER)
 
         canvas1.create_text(630, 200, text="Welcome", fill = "white",font=('times new roman',20,'bold'))
 
@@ -45,27 +44,27 @@ class Login:
 #login_label.place(x=20, y=20, width = 500, height=50)
 
     # Create a frame in the middle
-        middle_frame = tk.Frame(self.root, bg="black", bd = 2,  relief=RIDGE)
+        middle_frame = Frame(self.root, bg="black", bd = 2,  relief=RIDGE)
         middle_frame.place(x = 500, y = 300, width = 270, height =150 )
 
     # Username Label and Entry
-        username_label = tk.Label(middle_frame, text="  Username :",font=('arial',11,'bold'),bg='black', fg = "white")
+        username_label = Label(middle_frame, text="  Username :",font=('arial',11,'bold'),bg='black', fg = "white")
         username_label.grid(row=1, column=0, padx = 10, pady = 10, sticky="w")
-        username_entry = tk.Entry(middle_frame, textvariable=self.var_username)
+        username_entry = Entry(middle_frame, textvariable=self.var_username)
         username_entry.grid(row=1, column=1, padx = 5, pady = 5)
 
     # Password Label and Entry
-        password_label = tk.Label(middle_frame, text="  Password :",font=('arial',11,'bold'),bg='black', fg = "white")
+        password_label = Label(middle_frame, text="  Password :",font=('arial',11,'bold'),bg='black', fg = "white")
         password_label.grid(row=2, column=0,padx = 10, pady = 5, sticky="w")
-        password_entry = tk.Entry(middle_frame, show="*", textvariable=self.var_password)
+        password_entry = Entry(middle_frame, show="*", textvariable=self.var_password)
         password_entry.grid(row=2, padx = 5, pady = 5,column=1)
 
     # Frame for the login button
-        button_frame = tk.Frame(middle_frame)
+        button_frame = Frame(middle_frame)
         button_frame.place(x=100, y = 90, width = 70, height = 25)
 
     # Login Button
-        login_button = tk.Button(button_frame, text="Login", command=self.validate_login , width = 14,font=('arial',11,'bold'),bg='gray', fg = "white")
+        login_button = Button(button_frame, text="Login", command=self.validate_login , width = 14,font=('arial',11,'bold'),bg='gray', fg = "white")
         login_button.pack()
 
 
@@ -82,13 +81,13 @@ class Login:
                 print(username_data)
                 for i in username_data:
                     if self.var_username.get() == i[0] and self.var_password.get() == i[1]:
-                        print("Wordked")
+                        print("Worked")
                         criminal.Criminal(self.root)
                         messagebox.showinfo('Success',"Login Successful!")
                         break
                     else:
                         messagebox.showinfo('Fail to Login','Incorrect username or password')
-                        break
+                        
                      
                      
     # Dummy validation - You should replace this with actual authentication logic
