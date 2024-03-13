@@ -12,7 +12,7 @@ class Criminal:
 
         #creating the window
         self.root.geometry('1530x790+0+0')
-        self.root.title('CRIMINAL MANAGEMENT SYSTEM')
+        self.root.title('CENTRAL BUREAU OF INVESTIGATION')
 
 
         #VARIABLES
@@ -42,7 +42,7 @@ class Criminal:
 
 
         #creating the heading label
-        lbl_title = Label(self.root, text = ' CRIMINAL MANAGEMENT SYSTEM SOFTWARE',font=('times new roman',40,'bold'),bg='black',fg='white')
+        lbl_title = Label(self.root, text = ' CENTRAL BUREAU OF INVESTIGATION',font=('times new roman',40,'bold'),bg='black',fg='white')
         lbl_title.place(x=0, y=0, width = 1530, height=70)
 
         #logo
@@ -380,16 +380,27 @@ class Criminal:
 
     #UPDATE
     def update_data(self):
-        if self.var_case_id.get() == "":
+        if self.var_criminal_id.get() == "":
             messagebox.showerror('Error','All Fields are required', parent = self.root)
 
         else:
             try:
-                update=messagebox.askyesno('Update','Are you sure?' )
+                update=messagebox.askyesno('Update','Are you sure?\n NOTE: Cannot update Criminal ID and FIR No' )
                 if update>0:
-                    conn= mysql.connector.connect(host='crms-database.c1cu4w0w6899.ap-southeast-2.rds.amazonaws.com',username='admin',password='crms2024', database='learndb')
+                    conn= mysql.connector.connect(host='crms-database.c1cu4w0w6899.ap-southeast-2.rds.amazonaws.com',username='admin',password='crms2024', database='CriminalRecord')
                     my_cursor=conn.cursor()
-                    #my_cursor.execute('update criminalbase set Criminal_No=%s, criminal_Name = %s'........................ blah blah blah all attributes,(self.var_criminal_id.get(), etc etc))
+                    my_cursor.execute('update Criminal set name = %s,address=%s,aadhar_no = %s, date_of_birth = %s, occupation = %s, gender = %s where criminalId = %s',(self.var_criminal_name.get(),self.var_address.get(),self.var_aadhar_no.get(),self.var_date_of_birth.get(),self.var_occupation.get(),self.var_gender.get(),self.var_criminal_id.get()))
+
+                    my_cursor.execute('update FIR set CriminalNo = %s,date_of_crime=%s,date_of_arrest = %s, aliase = %s, crime_type = %s, wanted = %s where FIRNo = %s',(
+                        self.var_criminal_id.get(),
+                        self.var_date_of_crime.get(),
+                        self.var_date_of_arrest.get(),
+                        self.var_aliase.get(),
+                        self.var_crime_type.get(),
+                        self.var_wanted.get(),
+                        self.var_fir_no.get())) 
+
+
                 else:
                     if not update:
                         return
