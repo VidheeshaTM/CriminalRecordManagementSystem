@@ -270,7 +270,7 @@ class Criminal:
 
 
         #To change the width of the columns in the table 
-        self.criminal_table.column('1', width=50)
+        """self.criminal_table.column('1', width=50)
         self.criminal_table.column('2', width=120)
         self.criminal_table.column('3', width=300)
         self.criminal_table.column('4', width=100)
@@ -282,7 +282,7 @@ class Criminal:
         self.criminal_table.column('10', width=50)
         self.criminal_table.column('11', width=100)
         self.criminal_table.column('12', width=50)
-        self.criminal_table.column('13', width=70)
+        self.criminal_table.column('13', width=70)"""
 
 
 
