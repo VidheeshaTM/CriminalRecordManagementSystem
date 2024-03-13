@@ -269,20 +269,20 @@ class Criminal:
         self.criminal_table['show']='headings'
 
 
-        #To change the width of the colums in the table 
-        self.criminal_table.column('1', width=20)
-        self.criminal_table.column('2', width=100)
-        self.criminal_table.column('3', width=100)
-        self.criminal_table.column('4', width=70)
+        #To change the width of the columns in the table 
+        self.criminal_table.column('1', width=50)
+        self.criminal_table.column('2', width=120)
+        self.criminal_table.column('3', width=300)
+        self.criminal_table.column('4', width=100)
         self.criminal_table.column('5', width=70)
-        self.criminal_table.column('6', width=70)
-        self.criminal_table.column('6', width=30)
+        self.criminal_table.column('6', width=90)
         self.criminal_table.column('7', width=70)
         self.criminal_table.column('8', width=70)
-        self.criminal_table.column('9', width=50)
-        self.criminal_table.column('10', width=100)
-        self.criminal_table.column('11', width=20)
-        self.criminal_table.column('12', width=20)
+        self.criminal_table.column('9', width=70)
+        self.criminal_table.column('10', width=50)
+        self.criminal_table.column('11', width=100)
+        self.criminal_table.column('12', width=50)
+        self.criminal_table.column('13', width=70)
 
 
 
