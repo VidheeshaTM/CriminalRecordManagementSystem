@@ -13,7 +13,8 @@ class Criminal:
         #creating the window
         self.root.geometry('1530x790+0+0')
         self.root.title('CENTRAL BUREAU OF INVESTIGATION')
-
+        
+        
 
         #VARIABLES
 
@@ -292,6 +293,8 @@ class Criminal:
 
         self.criminal_table.bind("<ButtonRelease>",self.get_cursor)
         #self.fetch_data()
+
+        
 
 
     #ADD FUNCTION
